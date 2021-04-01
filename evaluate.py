@@ -84,13 +84,13 @@ for idx in range(len(eval_low_data_name)):
     name = name[:name.find('.')]
     eval_img_name.append(name)
     eval_low_im = load_images(eval_low_data_name[idx])
-    print(eval_low_im.shape)
+    print(name,"Original",eval_low_im.shape)
     h,w,c = eval_low_im.shape
 # the size of test image H and W need to be multiple of 4, if it is not a multiple of 4, we will discard some border pixels.  
     h_tmp = h%4
     w_tmp = w%4
     eval_low_im_resize = eval_low_im[0:h-h_tmp, 0:w-w_tmp, :]
-    print(eval_low_im_resize.shape)
+    print("resized",eval_low_im_resize.shape)
     eval_low_data.append(eval_low_im_resize)
 
 sample_dir = args.save_dir 
